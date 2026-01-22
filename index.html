@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Feladatok - Refactor</title>
+</head>
+<body>
+    <script>
+        // --- Segédfüggvények a kód tisztaságáért ---
+        
+        // Szám bekérése egyszerűbben
+        const szamBekeres = (szoveg) => Number(prompt(szoveg));
+        
+        // Véletlenszám generátor (min és max között)
+        const veletlenGeneralas = (max) => Math.floor(Math.random() * max) + 1;
+
+        // -------------------------------------------
+
+        // 1. Feladat: Üdvözlés
+        const felhasznaloNev = prompt("Kérlek, add meg a neved:");
+        console.log(`Szia ${felhasznaloNev}!`);
+
+        // 2. Feladat: Téglalap
+        console.log("--- 2. Feladat: Téglalap ---");
+        const aOldal = szamBekeres("Téglalap 'a' oldala:");
+        const bOldal = szamBekeres("Téglalap 'b' oldala:");
+        
+        console.log(`Kerület: ${2 * (aOldal + bOldal)}`);
+        console.log(`Terület: ${aOldal * bOldal}`);
+
+        // 3. Feladat: Kör
+        console.log("--- 3. Feladat: Kör ---");
+        const sugar = szamBekeres("Kör sugara:");
+        // Math.PI használata és hatványozás (**)
+        console.log(`Kerület: ${(2 * sugar * Math.PI).toFixed(2)}`); // .toFixed(2) csak esztétika, 2 tizedesjegyre kerekít
+        console.log(`Terület: ${(Math.PI * (sugar ** 2)).toFixed(2)}`);
+
+        // 4. Feladat: Dobókocka (1-6)
+        console.log(`Dobókocka dobás: ${veletlenGeneralas(6)}`);
+
+        // 5. Feladat: Lottó (1-90)
+        console.log(`Lottószám: ${veletlenGeneralas(90)}`);
+
+        // 6. Feladat: Inch váltó
+        // Megjegyzés: A hivatalos váltószám 2.54, de hagytam a te kódod szerinti 2.71-et
+        const inchErtek = szamBekeres("Hány inch?");
+        const valtoSzam = 2.71; 
+        console.log(`${inchErtek} inch = ${(inchErtek * valtoSzam)} cm`);
+
+        // 7. Feladat: Idő konvertálás
+        console.log("--- 7. Feladat: Idő ---");
+        const ora = szamBekeres("Óra:");
+        const perc = szamBekeres("Perc:");
+        const masodperc = szamBekeres("Másodperc:");
+
+        const osszesMasodperc = (ora * 3600) + (perc * 60) + masodperc;
+        console.log(`Napból eltelt idő másodpercben: ${osszesMasodperc}`);
+
+    </script>
+</body>
+</html>
